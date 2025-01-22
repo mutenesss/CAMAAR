@@ -1,0 +1,49 @@
+Feature: Respond Questionnaires
+
+Scenario: View unanswered questionnaires
+    Given I am a class participant
+    And I am logged into the system
+    When I access the pending questionnaires page
+    Then I should see a list of all unanswered questionnaires from the classes I am enrolled in
+    And the option to select a questionnaire to answer
+
+### Success Case
+Given I am a class participant
+And I am logged into the system
+And there are unanswered questionnaires
+When I access the pending questionnaires page
+Then I should see all the pending questionnaires correctly
+
+### Error Case
+Given I am a class participant
+And I am logged into the system
+And there are no unanswered questionnaires
+When I access the pending questionnaires page
+Then I should see a message indicating that there are no pending questionnaires
+
+## Scenario: Answer a questionnaire
+Given I am a class participant
+And I am logged into the system
+And I have a pending questionnaire to answer
+When I select the questionnaire
+And fill in the answers to all the required questions
+And click "Submit"
+Then the answers should be saved in the system
+And the questionnaire should be marked as answered
+
+### Success Case
+Given I am a class participant
+And I am logged into the system
+And I have a pending questionnaire to answer
+When I fill in all the answers correctly
+And click "Submit"
+Then the questionnaire should be successfully saved
+And marked as answered
+
+### Error Case
+Given I am a class participant
+And I am logged into the system
+And I have a pending questionnaire to answer
+When I leave any required question blank
+And click "Submit"
+Then I should receive an error message indicating that all required questions must be filled out
