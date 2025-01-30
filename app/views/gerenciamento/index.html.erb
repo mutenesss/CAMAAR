@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="sidebar">
+    <h3>Sidebar</h3>
+    <ul>
+      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
+      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Gerenciamento</h1>
+    <button onclick="location.href='<%= url_for(controller: 'gerenciamento', action: 'importar_dados') %>'">
+      Importar Dados
+    </button>
+    <button onclick="location.href='<%= url_for(controller: 'gerenciamento', action: 'ver_templates') %>'">
+      Ver Templates
+    </button>
+    <button onclick="location.href='<%= url_for(controller: 'gerenciamento', action: 'ver_respostas') %>'">
+      Ver Respostas
+    </button>
+    <button onclick="location.href='<%= url_for(controller: 'gerenciamento', action: 'criar_formulario') %>'">
+      Criar Formulário
+    </button>
+  </div>
+</div>

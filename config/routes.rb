@@ -11,4 +11,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # 
+  
+
+  get "/gerenciamento", to: "gerenciamento#index"
+  get "/importar_dados", to: "gerenciamento#importar_dados"
+  get "/ver_templates", to: "gerenciamento#ver_templates"
+  get "/ver_respostas", to: "gerenciamento#ver_respostas"
+  get "/criar_formulario", to: "gerenciamento#criar_formulario"
+  
+  get "/avaliacoes", to: "avaliacoes#index"
+  
+    
 end
