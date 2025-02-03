@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_28_191832) do
-  create_table "coordenador", primary_key: "CoordenadorID", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
+  create_table "coordenadors", primary_key: "CoordenadorID", force: :cascade do |t|
     t.integer "departamento_id"
     t.integer "user_id"
     t.index ["departamento_id"], name: "index_coordenador_on_departamento_id"
     t.index ["user_id"], name: "index_coordenador_on_user_id"
   end
 
-  create_table "departamento", primary_key: "DepartamentoID", force: :cascade do |t|
+  create_table "departamentos", primary_key: "DepartamentoID", force: :cascade do |t|
     t.string "Nome"
   end
 
-  create_table "materia", primary_key: "MateriaID", force: :cascade do |t|
+  create_table "materias", primary_key: "MateriaID", force: :cascade do |t|
     t.string "Nome"
     t.string "Codigo"
     t.integer "departamento_id"
@@ -36,7 +36,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_191832) do
     t.index ["user_id"], name: "index_matriculas_on_user_id"
   end
 
-  create_table "questao", primary_key: "QuestaoID", force: :cascade do |t|
+  create_table "password_reset_tokens", force: :cascade do |t|
+    t.integer "UserID"
+    t.string "token"
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questaooptions", primary_key: "QuestaoOptionID", force: :cascade do |t|
+    t.string "Nome"
+    t.string "Texto"
+    t.integer "questao_id"
+    t.index ["questao_id"], name: "index_questaooption_on_questao_id"
+  end
+
+  create_table "questaos", primary_key: "QuestaoID", force: :cascade do |t|
     t.string "Nome"
     t.string "Texto"
     t.string "Tipo"
@@ -44,28 +59,21 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_191832) do
     t.index ["template_id"], name: "index_questao_on_template_id"
   end
 
-  create_table "questaooption", primary_key: "QuestaoOptionID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "Texto"
-    t.integer "questao_id"
-    t.index ["questao_id"], name: "index_questaooption_on_questao_id"
-  end
-
-  create_table "questionario", primary_key: "QuestionarioID", force: :cascade do |t|
+  create_table "questionarios", primary_key: "QuestionarioID", force: :cascade do |t|
     t.string "Nome"
     t.string "Turma"
     t.integer "template_id"
     t.index ["template_id"], name: "index_questionario_on_template_id"
   end
 
-  create_table "respondido", primary_key: "RespondidoID", force: :cascade do |t|
+  create_table "respondidos", primary_key: "RespondidoID", force: :cascade do |t|
     t.integer "questionario_id"
     t.integer "user_id"
     t.index ["questionario_id"], name: "index_respondido_on_questionario_id"
     t.index ["user_id"], name: "index_respondido_on_user_id"
   end
 
-  create_table "resposta", primary_key: "RespostaID", force: :cascade do |t|
+  create_table "respostas", primary_key: "RespostaID", force: :cascade do |t|
     t.string "Valor"
     t.integer "questao_id"
     t.integer "respondido_id"
@@ -73,13 +81,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_191832) do
     t.index ["respondido_id"], name: "index_resposta_on_respondido_id"
   end
 
-  create_table "template", primary_key: "TemplateID", force: :cascade do |t|
+  create_table "templates", primary_key: "TemplateID", force: :cascade do |t|
     t.string "Nome"
     t.string "PublicoAlvo"
     t.string "Semestre"
   end
 
-  create_table "turma", primary_key: "TurmaID", force: :cascade do |t|
+  create_table "turmas", primary_key: "TurmaID", force: :cascade do |t|
     t.string "Codigo"
     t.string "Semestre"
     t.integer "materia_id"
@@ -95,18 +103,4 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_191832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_foreign_key "coordenador", "departamentos"
-  add_foreign_key "coordenador", "users"
-  add_foreign_key "materia", "departamentos"
-  add_foreign_key "matriculas", "turmas"
-  add_foreign_key "matriculas", "users"
-  add_foreign_key "questao", "templates"
-  add_foreign_key "questaooption", "questaos"
-  add_foreign_key "questionario", "templates"
-  add_foreign_key "respondido", "questionarios"
-  add_foreign_key "respondido", "users"
-  add_foreign_key "resposta", "questaos"
-  add_foreign_key "resposta", "respondidos"
-  add_foreign_key "turma", "materia", column: "materia_id"
 end

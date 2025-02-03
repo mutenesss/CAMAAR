@@ -9,28 +9,28 @@ class CreateDb < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    create_table :departamento, primary_key: "DepartamentoID" do |t|
+    create_table :departamentos, primary_key: "DepartamentoID" do |t|
       t.string "Nome"
     end
 
-    create_table :template, primary_key: "TemplateID" do |t|
+    create_table :templates, primary_key: "TemplateID" do |t|
       t.string "Nome"
       t.string "PublicoAlvo"
       t.string "Semestre" 
     end
 
-    create_table :coordenador, primary_key: "CoordenadorID" do |t|
+    create_table :coordenadors, primary_key: "CoordenadorID" do |t|
       t.belongs_to :departamento, foreign_key: true
       t.belongs_to :user, foreign_key: true
     end
 
-    create_table :materia, primary_key: "MateriaID" do |t|
+    create_table :materias, primary_key: "MateriaID" do |t|
       t.string "Nome"
       t.string "Codigo"
       t.belongs_to :departamento, foreign_key: true
     end
 
-    create_table :turma, primary_key: "TurmaID" do |t|
+    create_table :turmas, primary_key: "TurmaID" do |t|
       t.string "Codigo"
       t.string "Semestre"
       t.belongs_to :materia, foreign_key: true
@@ -41,31 +41,31 @@ class CreateDb < ActiveRecord::Migration[8.0]
       t.belongs_to :turma, foreign_key: true
     end
 
-    create_table :questionario, primary_key: "QuestionarioID" do |t|
+    create_table :questionarios, primary_key: "QuestionarioID" do |t|
       t.string "Nome"
       t.string "Turma"
       t.belongs_to :template, foreign_key: true
     end
 
-    create_table :respondido, primary_key: "RespondidoID" do |t|
+    create_table :respondidos, primary_key: "RespondidoID" do |t|
       t.belongs_to :questionario, foreign_key: true
       t.belongs_to :user, foreign_key: true
     end
 
-    create_table :questao, primary_key: "QuestaoID" do |t|
+    create_table :questaos, primary_key: "QuestaoID" do |t|
       t.string "Nome"
       t.string "Texto"
       t.string "Tipo"
       t.belongs_to :template, foreign_key: true
     end
 
-    create_table :questaooption, primary_key: "QuestaoOptionID" do |t|
+    create_table :questaooptions, primary_key: "QuestaoOptionID" do |t|
       t.string "Nome"
       t.string "Texto"
       t.belongs_to :questao, foreign_key: true
     end
 
-    create_table :resposta, primary_key: "RespostaID" do |t|
+    create_table :respostas, primary_key: "RespostaID" do |t|
       t.string "Valor"
       t.belongs_to :questao, foreign_key: true
       t.belongs_to :respondido, foreign_key: true

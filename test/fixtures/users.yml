@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  UserID: 1
+  Matricula: MyString
+  Email: MyString
+  Nome: MyString
+  Role: MyString
+  Senha: MyString
+
+two:
+  UserID: 1
+  Matricula: MyString
+  Email: MyString
+  Nome: MyString
+  Role: MyString
+  Senha: MyString
