@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="sidebar">
+    <h3>Sidebar</h3>
+    <ul>
+      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
+      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Criação de Formulário</h1>
+    
+    <% if @questionarios&.errors&.any? %>
+      <div class="error-messages">
+        <ul>
+          <% @questionarios.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with url: create_form_gerenciamento_index_path, method: :post do |f| %>
+      <div>
+        <%= label_tag :nome, "Nome" %>
+        <%= text_field_tag :nome, nil, required: true, 
+            oninvalid: "this.setCustomValidity('Por favor, preencha o nome do formulário')",
+            oninput: "this.setCustomValidity('')" %>
+      </div>
+      <div>
+        <%= label_tag :turma, "Turma" %>
+        <%= select_tag :turma, 
+            options_from_collection_for_select(@turmas, :codigo, :codigo),
+            required: true,
+            prompt: "Selecione uma turma" %>
+      </div>
+      <div>
+        <%= label_tag :template_base, "Template Base" %>
+        <%= select_tag :template_base, 
+            options_from_collection_for_select(@templates, :id, :nome),
+            required: true,
+            prompt: "Selecione um template" %>
+      </div>
+      <div>
+        <%= submit_tag "Criar Formulário" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+.error-messages {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+select:invalid {
+  color: gray;
+}
+</style>
