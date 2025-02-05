@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_05_070643) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
+  create_table "avaliacaos", force: :cascade do |t|
+    t.string "nome_materia"
+    t.string "semestre"
+    t.string "professor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "coordenadors", primary_key: "CoordenadorID", force: :cascade do |t|
     t.integer "departamentos_id"
     t.integer "users_id"

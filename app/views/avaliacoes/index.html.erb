@@ -11,7 +11,7 @@
 
 <div class="avaliacoes-container">
   <% @avaliacoes.each do |avaliacao| %>
-    <div class="avaliacao-card">
+    <div class="avaliacao-card" onclick="location.href='<%= formulario_avaliaco_path(avaliacao) %>'" style="cursor: pointer;">
       <strong><%= avaliacao[:nome_materia] %></strong><br>
       <small><%= avaliacao[:semestre] %></small><br>
       <strong><%= avaliacao[:professor] %></strong>
