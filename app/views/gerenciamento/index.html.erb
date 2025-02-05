@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="sidebar">
+    <h3>Sidebar</h3>
+    <ul>
+      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
+      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Gerenciamento</h1>
+    <%= button_to 'Importar Dados' %>
+    <%= button_to 'Ver Templates', templates_path, method: :get %>
+    <%= button_to 'Ver Respostas', respostas_path, method: :get %>
+    <%= button_to 'Criar Formulário', new_form_gerenciamento_index_path, method: :get %>
+  </div>
+</div>

@@ -14,8 +14,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
   create_table "coordenadors", primary_key: "CoordenadorID", force: :cascade do |t|
     t.integer "departamento_id"
     t.integer "user_id"
-    t.index ["departamento_id"], name: "index_coordenador_on_departamento_id"
-    t.index ["user_id"], name: "index_coordenador_on_user_id"
+    t.index ["departamento_id"], name: "index_coordenadors_on_departamento_id"
+    t.index ["user_id"], name: "index_coordenadors_on_user_id"
   end
 
   create_table "departamentos", primary_key: "DepartamentoID", force: :cascade do |t|
@@ -26,7 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.string "Nome"
     t.string "Codigo"
     t.integer "departamento_id"
-    t.index ["departamento_id"], name: "index_materia_on_departamento_id"
+    t.index ["departamento_id"], name: "index_materias_on_departamento_id"
   end
 
   create_table "matriculas", primary_key: "MatriculaID", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.string "Nome"
     t.string "Texto"
     t.integer "questao_id"
-    t.index ["questao_id"], name: "index_questaooption_on_questao_id"
+    t.index ["questao_id"], name: "index_questaooptions_on_questao_id"
   end
 
   create_table "questaos", primary_key: "QuestaoID", force: :cascade do |t|
@@ -56,29 +56,29 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.string "Texto"
     t.string "Tipo"
     t.integer "template_id"
-    t.index ["template_id"], name: "index_questao_on_template_id"
+    t.index ["template_id"], name: "index_questaos_on_template_id"
   end
 
   create_table "questionarios", primary_key: "QuestionarioID", force: :cascade do |t|
     t.string "Nome"
     t.string "Turma"
     t.integer "template_id"
-    t.index ["template_id"], name: "index_questionario_on_template_id"
+    t.index ["template_id"], name: "index_questionarios_on_template_id"
   end
 
   create_table "respondidos", primary_key: "RespondidoID", force: :cascade do |t|
     t.integer "questionario_id"
     t.integer "user_id"
-    t.index ["questionario_id"], name: "index_respondido_on_questionario_id"
-    t.index ["user_id"], name: "index_respondido_on_user_id"
+    t.index ["questionario_id"], name: "index_respondidos_on_questionario_id"
+    t.index ["user_id"], name: "index_respondidos_on_user_id"
   end
 
   create_table "respostas", primary_key: "RespostaID", force: :cascade do |t|
     t.string "Valor"
     t.integer "questao_id"
     t.integer "respondido_id"
-    t.index ["questao_id"], name: "index_resposta_on_questao_id"
-    t.index ["respondido_id"], name: "index_resposta_on_respondido_id"
+    t.index ["questao_id"], name: "index_respostas_on_questao_id"
+    t.index ["respondido_id"], name: "index_respostas_on_respondido_id"
   end
 
   create_table "templates", primary_key: "TemplateID", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.string "Codigo"
     t.string "Semestre"
     t.integer "materia_id"
-    t.index ["materia_id"], name: "index_turma_on_materia_id"
+    t.index ["materia_id"], name: "index_turmas_on_materia_id"
   end
 
   create_table "users", primary_key: "UserID", force: :cascade do |t|
@@ -103,4 +103,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "coordenadors", "departamentos"
+  add_foreign_key "coordenadors", "users"
+  add_foreign_key "materias", "departamentos"
+  add_foreign_key "matriculas", "turmas"
+  add_foreign_key "matriculas", "users"
+  add_foreign_key "questaooptions", "questaos"
+  add_foreign_key "questaos", "templates"
+  add_foreign_key "questionarios", "templates"
+  add_foreign_key "respondidos", "questionarios"
+  add_foreign_key "respondidos", "users"
+  add_foreign_key "respostas", "questaos"
+  add_foreign_key "respostas", "respondidos"
+  add_foreign_key "turmas", "materia", column: "materia_id"
 end
