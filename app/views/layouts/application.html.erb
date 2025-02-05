@@ -23,6 +23,17 @@
   </head>
 
   <body>
+    <%# Aqui renderiza o conteúdo principal %>
     <%= yield %>
+
+    <%# Flash messages devem estar dentro do body %>
+    <% if flash[:notice] %>
+      <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <p class="alert alert-danger"><%= flash[:alert] %></p>
+    <% end %>
+
   </body>
 </html>

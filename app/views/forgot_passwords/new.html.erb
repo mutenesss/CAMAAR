@@ -1,0 +1,10 @@
+<h2>Esqueci minha senha</h2>
+<%= form_with url: forgot_passwords_path, method: :post do |f| %>
+  <div>
+    <%= f.label :email, "Digite seu e-mail" %>
+    <%= f.email_field :email, required: true %>
+  </div>
+  <div>
+    <%= f.submit "Enviar instruções" %>
+  </div>
+<% end %>

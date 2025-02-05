@@ -1,0 +1,14 @@
+<h2>Redefinir Senha</h2>
+<%= form_with url: forgot_passwords_path(token: params[:token]), method: :patch do |f| %>
+  <div>
+    <%= f.label :password, "Nova Senha" %>
+    <%= f.password_field :password, required: true %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation, "Confirme a Senha" %>
+    <%= f.password_field :password_confirmation, required: true %>
+  </div>
+  <div>
+    <%= f.submit "Redefinir Senha" %>
+  </div>
+<% end %>
