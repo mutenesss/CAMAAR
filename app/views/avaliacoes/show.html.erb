@@ -1,0 +1,26 @@
+<div class="navbar">
+  <div class="menu-icon">&#9776;</div>
+  <div class="title">Avaliação - <%= @avaliacao[:nome_materia] %> - <%= @avaliacao[:semestre] %></div>
+  <div class="user-menu">
+    <div class="user-icon">U</div>
+  </div>
+</div>
+
+<div class="avaliacao-form-container">
+  <%= form_with url: avaliacao_path(@avaliacao[:id]), method: :post, local: true do |form| %>
+    <% @perguntas.each_with_index do |pergunta, index| %>
+      <div class="pergunta">
+        <label><%= pergunta %></label><br>
+        <% if index < 2 %>
+          <% ["Muito bom", "Bom", "Satisfatório", "Ruim", "Péssimo"].each do |opcao| %>
+            <%= form.radio_button "resposta_#{index}", opcao %>
+            <%= form.label "resposta_#{index}_#{opcao}", opcao %><br>
+          <% end %>
+        <% else %>
+          <%= form.text_area "resposta_#{index}", placeholder: "Digite sua resposta..." %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.submit 'Enviar', class: 'submit-btn' %>
+  <% end %>
+</div>

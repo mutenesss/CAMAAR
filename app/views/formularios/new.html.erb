@@ -1,0 +1,20 @@
+<h1>Formulário de Avaliação - <%= @avaliacao.nome_materia %></h1>
+
+<%= form_with model: @formulario, url: formularios_path, local: true do |form| %>
+  <%= form.hidden_field :avaliacao_id, value: @avaliacao.id %>
+
+  <div>
+    <label>Como você avalia o curso?</label><br>
+    <%= form.radio_button :resposta, 'Ótimo' %> Ótimo<br>
+    <%= form.radio_button :resposta, 'Bom' %> Bom<br>
+    <%= form.radio_button :resposta, 'Regular' %> Regular<br>
+    <%= form.radio_button :resposta, 'Ruim' %> Ruim<br>
+  </div>
+
+  <div>
+    <label>Comentários:</label><br>
+    <%= form.text_area :resposta, placeholder: "Deixe seu comentário aqui..." %>
+  </div>
+
+  <%= form.submit 'Enviar Avaliação' %>
+<% end %>

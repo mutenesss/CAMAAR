@@ -5,41 +5,46 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  root to: 'home#index'
+  # Definindo o root da aplicação
+  root to: "avaliacoes#index"
 
-  resources :password_resets, only: [:new, :create]  # Sem o 'edit'
+  resources :password_resets, only: [ :new, :create ]  # Sem o 'edit'
 
   # Rota personalizada para o 'edit' que usa o 'token'
-  get 'password_resets/:token/edit', to: 'password_resets#edit', as: 'edit_password_reset'
-  patch 'password_resets/:token', to: 'password_resets#update', as: 'password_reset'
-  
+  get "password_resets/:token/edit", to: "password_resets#edit", as: "edit_password_reset"
+  patch "password_resets/:token", to: "password_resets#update", as: "password_reset"
+
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :passwords_set, only: [:new, :create]
+  resources :passwords_set, only: [ :new, :create ]
 
-  get 'passwords_set/:token/edit', to: 'passwords_set#edit', as: 'edit_passwords_set'
-  patch 'passwords_set/:token', to: 'passwords_set#update', as: 'passwords_set'
+  get "passwords_set/:token/edit", to: "passwords_set#edit", as: "edit_passwords_set"
+  patch "passwords_set/:token", to: "passwords_set#update", as: "passwords_set"
 
 
   resources :gerenciamento do
     collection do
-      get 'new_form'
-      post 'create_form'
+      get "new_form"
+      post "create_form"
     end
   end
-  resources :avaliacoes
-  resources :templates
-  resources :respostas 
 
-  #get "/gerenciamento", to: "gerenciamento#index"
-  #get "/importar_dados", to: "gerenciamento#importar_dados"
-  #get "/ver_templates", to: "gerenciamento#ver_templates"
-  #get "/ver_respostas", to: "gerenciamento#ver_respostas"
-  #get "/criar_formulario", to: "gerenciamento#criar_formulario"
-  
+  resources :avaliacoes, only: [ :index, :show ] do
+    member do
+      get "formulario", to: "formularios#new"
+    end
+  end
+
+  resources :formularios, only: [ :new, :create ]
+
+  resources :templates
+  resources :respostas
+
+  # Rotas para o gerenciamento de avaliações
   get "/avaliacoes", to: "avaliacoes#index"
+
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

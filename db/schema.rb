@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_05_070643) do
   create_table "coordenadors", primary_key: "CoordenadorID", force: :cascade do |t|
-    t.integer "departamento_id"
-    t.integer "user_id"
-    t.index ["departamento_id"], name: "index_coordenadors_on_departamento_id"
-    t.index ["user_id"], name: "index_coordenadors_on_user_id"
+    t.integer "departamentos_id"
+    t.integer "users_id"
+    t.index ["departamentos_id"], name: "index_coordenadors_on_departamentos_id"
+    t.index ["users_id"], name: "index_coordenadors_on_users_id"
   end
 
   create_table "departamentos", primary_key: "DepartamentoID", force: :cascade do |t|
     t.string "Nome"
+  end
+
+  create_table "formularios", force: :cascade do |t|
+    t.integer "avaliacao_id"
+    t.text "resposta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "materias", primary_key: "MateriaID", force: :cascade do |t|
@@ -104,8 +111,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_201800) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "coordenadors", "departamentos"
-  add_foreign_key "coordenadors", "users"
+  add_foreign_key "coordenadors", "departamentos", column: "departamentos_id"
+  add_foreign_key "coordenadors", "users", column: "users_id"
   add_foreign_key "materias", "departamentos"
   add_foreign_key "matriculas", "turmas"
   add_foreign_key "matriculas", "users"

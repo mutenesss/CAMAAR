@@ -8,3 +8,128 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .navbar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    flex-grow: 1;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-icon {
+    background-color: #5c226b;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    right: 0;
+    z-index: 1;
+  }
+  
+  .user-menu:hover .dropdown-content {
+    display: block;
+  }
+  
+  .avaliacoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #dcdcdc;
+  }
+  
+  .avaliacao-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avaliacoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #dcdcdc;
+  }
+  
+  .avaliacao-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .avaliacao-form-container {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pergunta {
+    margin-bottom: 20px;
+  }
+  
+  .submit-btn {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4a148c;
+  }
+  

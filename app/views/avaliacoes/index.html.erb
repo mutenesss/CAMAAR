@@ -1,13 +1,20 @@
-<div class="container">
-  <div class="sidebar">
-    <h3>Sidebar</h3>
-    <ul>
-      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
-      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
-    </ul>
+<div class="navbar">
+  <div class="menu-icon">&#9776;</div>
+  <div class="title">Avaliações</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Pesquisar...">
   </div>
+  <div class="user-menu">
+    <div class="user-icon">U</div>
+  </div>
+</div>
 
-  <div class="main-content">
-    <h1>Avaliações</h1>
-  </div>
+<div class="avaliacoes-container">
+  <% @avaliacoes.each do |avaliacao| %>
+    <div class="avaliacao-card">
+      <strong><%= avaliacao[:nome_materia] %></strong><br>
+      <small><%= avaliacao[:semestre] %></small><br>
+      <strong><%= avaliacao[:professor] %></strong>
+    </div>
+  <% end %>
 </div>
