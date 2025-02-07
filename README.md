@@ -11,8 +11,6 @@ Este projeto segue as melhores práticas de engenharia de software, utilizando *
 - 🧪 **RSpec** - Testes unitários e de integração
 - 🥒 **Cucumber** - Testes de aceitação (BDD)
 - 🗄️ **SQLite** - Banco de dados relacional
-- 🏗️ **Docker** - Containerização da aplicação
-- ☁️ **AWS** - Deploy e infraestrutura escalável
 
 ## 🚀 Como Rodar o Projeto
 
@@ -22,14 +20,13 @@ Certifique-se de ter instalado:
 - Ruby (>= 3.0.0)
 - Rails (>= 7.0)
 - SQLite
-- Docker e Docker Compose (opcional)
 
 ### 🏃 Passos para execução
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-projeto.git
-   cd seu-projeto
+   git clone git@github.com:mutenesss/CAMAAR.git
+   cd app
    ```
 
 2. Instale as dependências:
