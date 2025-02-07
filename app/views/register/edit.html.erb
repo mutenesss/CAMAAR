@@ -1,0 +1,16 @@
+<%= form_with(url: update_register_path(@token.token), method: :patch, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit 'Definir senha' %>
+    </div>
+  <% end %>
+  

@@ -1,4 +1,4 @@
-require 'rails_helper'
+/require 'rails_helper'
 
 RSpec.describe GerenciamentoController, type: :controller do
   describe "GET #index" do
@@ -57,3 +57,4 @@ RSpec.describe GerenciamentoController, type: :controller do
     end
   end
 end
+/

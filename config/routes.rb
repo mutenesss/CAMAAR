@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   get 'password_resets/:token/edit', to: 'password_resets#edit', as: 'edit_password_reset'
   patch 'password_resets/:token', to: 'password_resets#update', as: 'password_reset'
   
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  get 'login', to: 'sigin#new', as: :new_sigin
+  post 'login', to: 'sigin#create'
+
+  get 'register', to: 'register#new', as: 'new_register'
+  post 'register', to: 'register#create', as: 'register'
+  get ':token/edit', to: 'register#edit', as: 'edit_register'
+  patch ':token', to: 'register#update', as: 'update_register'
+  
 
   resources :passwords_set, only: [:new, :create]
 

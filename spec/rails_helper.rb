@@ -82,4 +82,3 @@ RSpec.configure do |config|
     User.destroy_all # Remove todos os usuários antes do teste
   end
 end
-
