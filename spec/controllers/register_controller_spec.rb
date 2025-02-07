@@ -1,18 +1,16 @@
 require 'rails_helper'
 
 RSpec.feature 'User Registration', type: :feature do
-  let(:user) { FactoryBot.build(:user) } # Usuário não persistido
-  let(:existing_user) { FactoryBot.create(:user) } # Usuário já cadastrado
 
   # Cenário 1: Visitar a página de registro
   scenario 'Visitar a página de registro' do
-    visit new_register_path
+    visit register_path
     expect(page).to have_content('Cadastro')
   end
 
   # Cenário 2: Registrar um novo usuário com sucesso
   scenario 'Registrar um novo usuário com sucesso' do
-    visit new_register_path
+    visit register_path
 
     fill_in 'Email', with: user.Email
     click_button 'Solicitar registro'
@@ -23,7 +21,7 @@ RSpec.feature 'User Registration', type: :feature do
 
   # Cenário 3: Tentar registrar um e-mail já cadastrado
   scenario 'Tentar registrar um e-mail já cadastrado' do
-    visit new_register_path
+    visit register_path
 
     fill_in 'Email', with: existing_user.email
     click_button 'Solicitar registro'

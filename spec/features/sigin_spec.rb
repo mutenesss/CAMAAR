@@ -5,7 +5,7 @@ RSpec.feature 'User Login', type: :feature do
 
   # Cenário 1
   scenario 'Usuário faz login com email' do
-    visit new_sigin_path
+    visit login_path
     fill_in 'Email ou Matrícula', with: user.Email
     fill_in 'Senha', with: user.Senha
     click_button 'Entrar'
@@ -15,7 +15,7 @@ RSpec.feature 'User Login', type: :feature do
 
   # Cenário 2
   scenario 'Usuário faz login com matrícula' do
-    visit new_sigin_path
+    visit login_path
     fill_in 'Email ou Matrícula', with: user.Matricula
     fill_in 'Senha', with: user.Senha
     click_button 'Entrar'
@@ -25,7 +25,7 @@ RSpec.feature 'User Login', type: :feature do
 
   # Cenário 3
   scenario 'Usuário tenta fazer login com senha incorreta' do
-    visit new_sigin_path
+    visit login_path
     fill_in 'Email ou Matrícula', with: user.Email
     fill_in 'Senha', with: 'senhaerrada'
     click_button 'Entrar'
@@ -35,7 +35,7 @@ RSpec.feature 'User Login', type: :feature do
 
   # Cenário 4
   scenario 'Usuário tenta fazer login com email/matrícula inexistente' do
-    visit new_sigin_path
+    visit login_path
     fill_in 'Email ou Matrícula', with: 'naoexiste@email.com'
     fill_in 'Senha', with: 'qualquercoisa'
     click_button 'Entrar'
