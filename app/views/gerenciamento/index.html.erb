@@ -1,17 +1,129 @@
 <div class="container">
   <div class="sidebar">
-    <h3>Sidebar</h3>
+    <h3>Gerenciamento</h3>
     <ul>
       <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
-      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
+      <li class="active"><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
     </ul>
   </div>
 
   <div class="main-content">
     <h1>Gerenciamento</h1>
-    <%= button_to 'Importar Dados' %>
-    <%= button_to 'Ver Templates', templates_path, method: :get %>
-    <%= button_to 'Ver Respostas', respostas_path, method: :get %>
-    <%= button_to 'Criar Formulário', new_form_gerenciamento_index_path, method: :get %>
+    <div class="button-group">
+      <%= button_to 'Importar Dados', '#', method: :get, class: 'btn primary' %>
+      <%= button_to 'Editar Templates', templates_path, method: :get, class: 'btn secondary' %>
+      <%= button_to 'Enviar Formulários', new_form_gerenciamento_index_path, method: :get, class: 'btn secondary' %>
+      <%= button_to 'Resultados', respostas_path, method: :get, class: 'btn secondary' %>
+    </div>
   </div>
 </div>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  background-color: white;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.sidebar h3 {
+  color: #5c226b;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 0;
+}
+
+.sidebar li.active {
+  background-color: #5c226b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn.primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #90EE90;
+  color: black;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .button-group {
+    width: 100%;
+  }
+}
+</style>
