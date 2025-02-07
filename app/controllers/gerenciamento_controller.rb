@@ -4,7 +4,7 @@ class GerenciamentoController < ApplicationController
 
   def new_form
     @questionarios = Questionarios.new
-    @turmas = Turma.all
+    @turmas = Turmas.all
     @templates = Templates.all
   end
 
@@ -13,7 +13,7 @@ class GerenciamentoController < ApplicationController
     if @questionarios.save
       redirect_to gerenciamento_path, notice: "Questionário criado com sucesso!"
     else
-      @turmas = Turma.all
+      @turmas = Turmas.all
       @templates = Templates.all
       render :new_form
     end

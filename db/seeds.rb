@@ -17,3 +17,5 @@ Avaliacao.create!([
   { nome_materia: "História", semestre: "2024/1", professor: "Prof. Ana" },
   { nome_materia: "Geografia", semestre: "2023/1", professor: "Prof. Paulo" }
 ])
+
+User.create(email: 'aluno@aluno.unb.br', password: 'password123', password_confirmation: 'password123')

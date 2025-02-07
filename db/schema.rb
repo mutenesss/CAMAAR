@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_05_193322) do
   create_table "avaliacaos", force: :cascade do |t|
     t.string "nome_materia"
     t.string "semestre"
@@ -79,6 +79,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
     t.string "Turma"
     t.integer "template_id"
     t.index ["template_id"], name: "index_questionarios_on_template_id"
+  end
+
+  create_table "registration_tokens", force: :cascade do |t|
+    t.string "email"
+    t.string "token"
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "respondidos", primary_key: "RespondidoID", force: :cascade do |t|

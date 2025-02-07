@@ -1,20 +1,20 @@
 class SiginController < ApplicationController
-    def new
-    end
-  
-    def create
-      user = User.find_by(email: params[:email])
-      
-      if user
-        user.reset_password_token = SecureRandom.hex(10) # Gera um token aleatório
-        user.save
-  
-        # Enviar e-mail com o link
-        UserMailer.password_reset(user).deliver_now
-        redirect_to root_path, notice: 'Um e-mail foi enviado com instruções para redefinir sua senha.'
+  def new
+  end
+
+  def create
+    user = User.find_by("Email = ? OR Matricula = ?", params[:identifier], params[:identifier])
+    
+    if user
+      if user.Senha == params[:password]
+        redirect_to root_path, notice: "Logado com sucesso"
       else
-        flash[:alert] = 'E-mail não encontrado.'
-        render :new
+        flash[:alert] = 'Senha incorreta.'
+        render :new and return
       end
+    else
+      flash[:alert] = 'E-mail ou matrícula não encontrados.'
+      render :new
     end
   end
+end

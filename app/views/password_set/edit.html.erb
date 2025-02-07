@@ -1,8 +1,0 @@
-<h2>Definir Senha</h2>
-<%= form_with url: passwords_set_path(token: params[:token]), method: :patch do %>
-  <div>
-    <%= label_tag :password, "Nova Senha:" %>
-    <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag "Definir Senha" %>
-<% end %>

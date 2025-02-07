@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+
   resources :passwords_set, only: [ :new, :create ]
+  resources :sessions, only: [ :new, :create, :destroy ]
 
   get "passwords_set/:token/edit", to: "passwords_set#edit", as: "edit_passwords_set"
   patch "passwords_set/:token", to: "passwords_set#update", as: "passwords_set"
