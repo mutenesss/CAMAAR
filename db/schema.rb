@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_05_193322) do
   create_table "avaliacaos", force: :cascade do |t|
     t.string "nome_materia"
     t.string "semestre"
@@ -41,7 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
     t.string "Nome"
     t.string "Codigo"
     t.integer "departamento_id"
-    t.index ["departamento_id"], name: "index_materia_on_departamento_id"
+    t.index ["departamento_id"], name: "index_materias_on_departamento_id"
   end
 
   create_table "matriculas", primary_key: "MatriculaID", force: :cascade do |t|
@@ -63,7 +63,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
     t.string "Nome"
     t.string "Texto"
     t.integer "questao_id"
-    t.index ["questao_id"], name: "index_questaooption_on_questao_id"
+    t.index ["questao_id"], name: "index_questaooptions_on_questao_id"
   end
 
   create_table "questaos", primary_key: "QuestaoID", force: :cascade do |t|
@@ -71,14 +71,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
     t.string "Texto"
     t.string "Tipo"
     t.integer "template_id"
-    t.index ["template_id"], name: "index_questao_on_template_id"
+    t.index ["template_id"], name: "index_questaos_on_template_id"
   end
 
   create_table "questionarios", primary_key: "QuestionarioID", force: :cascade do |t|
     t.string "Nome"
     t.string "Turma"
     t.integer "template_id"
-    t.index ["template_id"], name: "index_questionario_on_template_id"
+    t.index ["template_id"], name: "index_questionarios_on_template_id"
   end
 
   create_table "registration_tokens", force: :cascade do |t|
@@ -92,16 +92,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
   create_table "respondidos", primary_key: "RespondidoID", force: :cascade do |t|
     t.integer "questionario_id"
     t.integer "user_id"
-    t.index ["questionario_id"], name: "index_respondido_on_questionario_id"
-    t.index ["user_id"], name: "index_respondido_on_user_id"
+    t.index ["questionario_id"], name: "index_respondidos_on_questionario_id"
+    t.index ["user_id"], name: "index_respondidos_on_user_id"
   end
 
   create_table "respostas", primary_key: "RespostaID", force: :cascade do |t|
     t.string "Valor"
     t.integer "questao_id"
     t.integer "respondido_id"
-    t.index ["questao_id"], name: "index_resposta_on_questao_id"
-    t.index ["respondido_id"], name: "index_resposta_on_respondido_id"
+    t.index ["questao_id"], name: "index_respostas_on_questao_id"
+    t.index ["respondido_id"], name: "index_respostas_on_respondido_id"
   end
 
   create_table "templates", primary_key: "TemplateID", force: :cascade do |t|
@@ -114,7 +114,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_074323) do
     t.string "Codigo"
     t.string "Semestre"
     t.integer "materia_id"
-    t.index ["materia_id"], name: "index_turma_on_materia_id"
+    t.index ["materia_id"], name: "index_turmas_on_materia_id"
   end
 
   create_table "users", primary_key: "UserID", force: :cascade do |t|
