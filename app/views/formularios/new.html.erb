@@ -1,20 +1,100 @@
-<h1>Formulário de Avaliação - <%= @avaliacao.nome_materia %></h1>
+<h1 class="form-title">Avaliação - <%= @avaliacao.nome_materia %> - <%= @avaliacao.semestre %></h1>
 
-<%= form_with model: @formulario, url: formularios_path, local: true do |form| %>
-  <%= form.hidden_field :avaliacao_id, value: @avaliacao.id %>
+<div class="form-container">
+  <%= form_with model: @formulario, url: formularios_path, local: true do |form| %>
+    <%= form.hidden_field :avaliacao_id, value: @avaliacao.id %>
 
-  <div>
-    <label>Como você avalia o curso?</label><br>
-    <%= form.radio_button :resposta, 'Ótimo' %> Ótimo<br>
-    <%= form.radio_button :resposta, 'Bom' %> Bom<br>
-    <%= form.radio_button :resposta, 'Regular' %> Regular<br>
-    <%= form.radio_button :resposta, 'Ruim' %> Ruim<br>
-  </div>
+    <div class="question">
+      <label>Pergunta</label><br>
+      <%= form.radio_button :resposta, 'Muito bom' %> Muito bom<br>
+      <%= form.radio_button :resposta, 'Bom' %> Bom<br>
+      <%= form.radio_button :resposta, 'Satisfatório' %> Satisfatório<br>
+      <%= form.radio_button :resposta, 'Ruim' %> Ruim<br>
+      <%= form.radio_button :resposta, 'Péssimo' %> Péssimo<br>
+    </div>
 
-  <div>
-    <label>Comentários:</label><br>
-    <%= form.text_area :resposta, placeholder: "Deixe seu comentário aqui..." %>
-  </div>
+    <div class="question">
+      <label>Pergunta</label><br>
+      <%= form.text_field :resposta, placeholder: "Placeholder" %>
+    </div>
 
-  <%= form.submit 'Enviar Avaliação' %>
-<% end %>
+    <div class="question">
+      <label>Pergunta</label><br>
+      <%= form.text_field :resposta, placeholder: "Placeholder" %>
+    </div>
+
+    <div class="question">
+      <label>Pergunta</label><br>
+      <%= form.radio_button :resposta, 'Muito bom' %> Muito bom<br>
+      <%= form.radio_button :resposta, 'Bom' %> Bom<br>
+      <%= form.radio_button :resposta, 'Satisfatório' %> Satisfatório<br>
+      <%= form.radio_button :resposta, 'Ruim' %> Ruim<br>
+      <%= form.radio_button :resposta, 'Péssimo' %> Péssimo<br>
+    </div>
+
+    <button type="submit" class="submit-button">&#10148;</button>
+  <% end %>
+</div>
+
+<style>
+  body {
+    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-title {
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .question {
+    background-color: #dcdcdc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .question label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .question input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline: none;
+  }
+
+  .submit-button {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #732d91;
+  }
+</style>
+
