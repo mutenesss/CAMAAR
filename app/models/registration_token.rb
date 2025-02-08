@@ -1,6 +1,7 @@
 class RegistrationToken < ApplicationRecord
     # Validações
     validates :email, presence: true, uniqueness: true
+    validates :token, presence: true
   
     # Callback para gerar o token
     before_create :generate_token

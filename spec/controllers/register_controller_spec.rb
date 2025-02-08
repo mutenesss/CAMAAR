@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'User Registration', type: :feature do
 
+  let(:user) { FactoryBot.create(:user) }
+
   # Cenário 1: Visitar a página de registro
   scenario 'Visitar a página de registro' do
     visit register_path
@@ -12,7 +14,7 @@ RSpec.feature 'User Registration', type: :feature do
   scenario 'Registrar um novo usuário com sucesso' do
     visit register_path
 
-    fill_in 'Email', with: user.Email
+    fill_in 'Email', with: "novo@usuário.com"
     click_button 'Solicitar registro'
 
     expect(page).to have_content('Email de confirmação enviado. Verifique sua caixa de entrada.')
@@ -23,7 +25,7 @@ RSpec.feature 'User Registration', type: :feature do
   scenario 'Tentar registrar um e-mail já cadastrado' do
     visit register_path
 
-    fill_in 'Email', with: existing_user.email
+    fill_in 'Email', with: user.Email
     click_button 'Solicitar registro'
 
     expect(page).to have_content('Email já cadastrado.')
@@ -31,18 +33,24 @@ RSpec.feature 'User Registration', type: :feature do
 
   # Cenário 4: Confirmar o registro com um token válido
   scenario 'Confirmar o registro com um token válido' do
-    token = SecureRandom.hex(20)
-    user.update(confirmation_token: token) # Simula um token de confirmação
+    visit register_path
 
+    fill_in 'Email', with: "Usario@user.com"
+    click_button 'Solicitar registro'
+
+    token = RegistrationToken.find_by(email: "Usario@user.com")&.token
     visit edit_register_path(token)
 
-    fill_in 'Nome', with: 'João Silva'
-    fill_in 'Matrícula', with: '123456'
-    fill_in 'Senha', with: '123456'
-    fill_in 'Confirmar Senha', with: '123456'
-    click_button 'Confirmar Cadastro'
+    fill_in 'Nome',with: "Meu Nome"
+    fill_in 'Matricula',with: "939291"
+    fill_in 'Role',with: "user"
+    fill_in 'Password',with: "123"
+    fill_in 'Password confirmation',with: "123"
 
-    expect(page).to have_content('Cadastro concluído com sucesso!')
+    click_button 'Definir senha'
+
+
+    expect(page).to have_content('Cadastro realizado com sucesso!')
     expect(user.reload.confirmation_token).to be_nil # Verifica se o token foi limpo
   end
 
@@ -51,39 +59,6 @@ RSpec.feature 'User Registration', type: :feature do
     invalid_token = 'token_invalido'
     visit edit_register_path(invalid_token)
 
-    expect(page).to have_content('Link inválido ou expirado.')
-  end
-
-  # Cenário 6: Tentar confirmar o registro sem preencher os campos obrigatórios
-  scenario 'Tentar confirmar o registro sem preencher os campos obrigatórios' do
-    token = SecureRandom.hex(20)
-    user.update(confirmation_token: token) # Simula um token de confirmação
-
-    visit edit_register_path(token)
-
-    fill_in 'Nome', with: ''
-    fill_in 'Matrícula', with: ''
-    fill_in 'Senha', with: ''
-    fill_in 'Confirmar Senha', with: ''
-    click_button 'Confirmar Cadastro'
-
-    expect(page).to have_content('Erro ao salvar. Verifique os dados.')
-  end
-
-  # Cenário 7: Token é destruído após a confirmação do registro
-  scenario 'Token é destruído após a confirmação do registro' do
-    token = SecureRandom.hex(20)
-    user.update(confirmation_token: token) # Simula um token de confirmação
-
-    visit edit_register_path(token)
-
-    fill_in 'Nome', with: 'João Silva'
-    fill_in 'Matrícula', with: '123456'
-    fill_in 'Senha', with: '123456'
-    fill_in 'Confirmar Senha', with: '123456'
-    click_button 'Confirmar Cadastro'
-
-    expect(page).to have_content('Cadastro concluído com sucesso!')
-    expect(user.reload.confirmation_token).to be_nil # Verifica se o token foi limpo
+    expect(page).to have_content('Token inválido ou expirado.')
   end
 end

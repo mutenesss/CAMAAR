@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get "/register", to: "register#new"
   post "/register", to: "register#create"
   delete "/register", to: "register#destroy"
-  get "/register/edit", to: "register#edit", as: :edit_register
+  get "/register/:token/edit", to: "register#edit", as: :edit_register
+  patch "/register/:token", to: "register#update", as: :update_register
+
 
   resources :passwords_set, only: [ :new, :create ]
   resources :sessions, only: [ :new, :create, :destroy ]

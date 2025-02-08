@@ -1,16 +1,27 @@
 <%= form_with(url: update_register_path(@token.token), method: :patch, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :password %>
-      <%= form.password_field :password %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation %>
-    </div>
-  
-    <div class="actions">
-      <%= form.submit 'Definir senha' %>
-    </div>
-  <% end %>
-  
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, name: 'registration_token[nome]' %>
+  </div>
+  <div class="field">
+    <%= form.label :matricula %>
+    <%= form.text_field :matricula, name: 'registration_token[matricula]' %>
+  </div>
+  <div class="field">
+    <%= form.label :role %>
+    <%= form.text_field :role, name: 'registration_token[role]' %>
+  </div>
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, name: 'registration_token[password]' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, name: 'registration_token[password_confirmation]' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Definir senha' %>
+  </div>
+<% end %>
