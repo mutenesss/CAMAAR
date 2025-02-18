@@ -2,9 +2,6 @@ class GerenciamentoController < ApplicationController
   def index
   end
 
-  def importar_dados
-  end
-
   def new_form
     @questionario = Questionario.new
     @turmas = Turma.all
