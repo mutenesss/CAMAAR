@@ -2,29 +2,34 @@ class GerenciamentoController < ApplicationController
   def index
   end
 
+  def importar_dados
+  end
+
   def new_form
-    @questionarios = Questionarios.new
-    @turmas = Turmas.all
-    @templates = Templates.all
+    @questionario = Questionario.new
+    @turmas = Turma.all
+    @templates = Template.all
   end
 
   def create_form
-    @questionarios = Questionarios.new(questionarios_params)
-    if @questionarios.save
-      redirect_to gerenciamento_path, notice: "Questionário criado com sucesso!"
+    #Rails.logger.debug "Received parameters: #{params.inspect}"
+    @questionario = Questionario.new(questionario_params)
+    
+    if @questionario.save
+      flash[:alert] = "Questionário criado com sucesso!"
+      redirect_to gerenciamento_index_url
     else
-      @turmas = Turmas.all
-      @templates = Templates.all
+      flash[:alert] = "Erro ao criar questionário #{@questionario.nome}"
+      @turmas = Turma.all
+      @templates = Template.all
       render :new_form
     end
   end
 
-  def importar_dados
-  end
-
   private
 
-  def questionarios_params
-    params.require(:questionarios).permit(:nome, :turma_id, :templates_id)
+  def questionario_params
+    params.require(:questionario)
+    params[:questionario].permit(:nome, :turma_id, :template_id)
   end
 end

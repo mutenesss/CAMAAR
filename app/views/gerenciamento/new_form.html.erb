@@ -10,39 +10,39 @@
   <div class="main-content">
     <h1>Criação de Formulário</h1>
     
-    <% if @questionarios&.errors&.any? %>
+    <% if @questionario&.errors&.any? %>
       <div class="error-messages">
         <ul>
-          <% @questionarios.errors.full_messages.each do |message| %>
+          <% @questionario.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
 
-    <%= form_with url: create_form_gerenciamento_index_path, method: :post do |f| %>
+    <%= form_with model: @questionario, url: create_form_gerenciamento_index_path, method: :post do |f| %>
       <div>
-        <%= label_tag :nome, "Nome" %>
-        <%= text_field_tag :nome, nil, required: true, 
+        <%= f.label :nome, "Nome" %>
+        <%= f.text_field :nome, required: true, 
             oninvalid: "this.setCustomValidity('Por favor, preencha o nome do formulário')",
             oninput: "this.setCustomValidity('')" %>
       </div>
       <div>
-        <%= label_tag :turma, "Turma" %>
-        <%= select_tag :turma, 
-            options_from_collection_for_select(@turmas, :codigo, :codigo),
+        <%= f.label :turma_id, "Turma" %>
+        <%= f.select :turma_id, 
+            options_from_collection_for_select(@turmas, :id, :codigo),
             required: true,
             prompt: "Selecione uma turma" %>
       </div>
       <div>
-        <%= label_tag :template_base, "Template Base" %>
-        <%= select_tag :template_base, 
+        <%= f.label :template_id, "Template Base" %>
+        <%= f.select :template_id, 
             options_from_collection_for_select(@templates, :id, :nome),
             required: true,
             prompt: "Selecione um template" %>
       </div>
       <div>
-        <%= submit_tag "Criar Formulário" %>
+        <%= f.submit "Criar Formulário" %>
       </div>
     <% end %>
   </div>

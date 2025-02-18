@@ -20,11 +20,11 @@ class CreateDb < ActiveRecord::Migration[8.0]
     end
 
     create_table :coordenadors, primary_key: "CoordenadorID" do |t|
-      t.belongs_to :departamentos, foreign_key: true
-      t.belongs_to :users, foreign_key: true
+      t.belongs_to :departamento, foreign_key: true
+      t.belongs_to :user, foreign_key: true
     end
 
-    create_table :materias, primary_key: "MateriaID" do |t|
+    create_table :materia, primary_key: "MateriaID" do |t|
       t.string "Nome"
       t.string "Codigo"
       t.belongs_to :departamento, foreign_key: true
@@ -43,7 +43,7 @@ class CreateDb < ActiveRecord::Migration[8.0]
 
     create_table :questionarios, primary_key: "QuestionarioID" do |t|
       t.string "Nome"
-      t.string "Turma"
+      t.belongs_to :turma, foreign_key: true
       t.belongs_to :template, foreign_key: true
     end
 

@@ -1,5 +1,5 @@
-class Questionarios < ApplicationRecord
-  belongs_to :templates
+class Questionario < ApplicationRecord
+  belongs_to :template
   belongs_to :turma
   has_many :respostas
   has_many :respondidos

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_18_120437) do
   create_table "avaliacaos", force: :cascade do |t|
     t.string "nome_materia"
     t.string "semestre"
@@ -27,7 +27,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
   end
 
   create_table "departamentos", primary_key: "DepartamentoID", force: :cascade do |t|
-    t.string "Nome"
+    t.string "nome"
   end
 
   create_table "formularios", force: :cascade do |t|
@@ -38,8 +38,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
   end
 
   create_table "materias", primary_key: "MateriaID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "Codigo"
+    t.string "nome"
+    t.string "codigo"
     t.integer "departamento_id"
     t.index ["departamento_id"], name: "index_materia_on_departamento_id"
   end
@@ -60,25 +60,27 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
   end
 
   create_table "questaooptions", primary_key: "QuestaoOptionID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "Texto"
+    t.string "nome"
+    t.string "texto"
     t.integer "questao_id"
     t.index ["questao_id"], name: "index_questaooption_on_questao_id"
   end
 
   create_table "questaos", primary_key: "QuestaoID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "Texto"
-    t.string "Tipo"
+    t.string "nome"
+    t.string "texto"
+    t.string "tipo"
     t.integer "template_id"
     t.index ["template_id"], name: "index_questao_on_template_id"
   end
 
   create_table "questionarios", primary_key: "QuestionarioID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "Turma"
+    t.string "nome"
+    t.string "turma"
     t.integer "template_id"
+    t.integer "turma_id"
     t.index ["template_id"], name: "index_questionario_on_template_id"
+    t.index ["turma_id"], name: "index_questionarios_on_turma_id"
   end
 
   create_table "registration_tokens", force: :cascade do |t|
@@ -97,7 +99,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
   end
 
   create_table "respostas", primary_key: "RespostaID", force: :cascade do |t|
-    t.string "Valor"
+    t.string "valor"
     t.integer "questao_id"
     t.integer "respondido_id"
     t.index ["questao_id"], name: "index_resposta_on_questao_id"
@@ -105,14 +107,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
   end
 
   create_table "templates", primary_key: "TemplateID", force: :cascade do |t|
-    t.string "Nome"
-    t.string "PublicoAlvo"
-    t.string "Semestre"
+    t.string "nome"
+    t.string "publico_alvo"
+    t.string "semestre"
   end
 
   create_table "turmas", primary_key: "TurmaID", force: :cascade do |t|
-    t.string "Codigo"
-    t.string "Semestre"
+    t.string "codigo"
+    t.string "semestre"
     t.integer "materia_id"
     t.index ["materia_id"], name: "index_turma_on_materia_id"
   end
@@ -127,4 +129,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_07_173901) do
     t.datetime "updated_at", null: false
     t.string "confirmation_token"
   end
+
+  add_foreign_key "questionarios", "turmas", primary_key: "TurmaID"
 end

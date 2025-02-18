@@ -6,9 +6,9 @@ RSpec.describe "gerenciamento/index", type: :view do
 
     expect(rendered).to have_selector('h1', text: 'Gerenciamento')
     expect(rendered).to have_button('Importar Dados')
-    expect(rendered).to have_button('Ver Templates')
-    expect(rendered).to have_button('Ver Respostas')
-    expect(rendered).to have_button('Criar Formulário')
+    expect(rendered).to have_button('Editar Templates')
+    expect(rendered).to have_button('Enviar Formulários')
+    expect(rendered).to have_button('Resultados')
   end
 
   it "includes sidebar navigation links" do
