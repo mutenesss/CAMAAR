@@ -1,0 +1,73 @@
+<button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+<div class="sidebar" id="sidebar">
+  <h3>
+    Gerenciamento
+  </h3>
+  <ul>
+    <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
+    <li class="active"><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
+  </ul>
+</div>
+
+<style>
+.sidebar-toggle {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  display: block;
+  width: 25px;
+  text-align: left;
+}
+
+.sidebar {
+  background-color: white;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  display: none; /* Initially hidden */
+}
+
+.sidebar h3 {
+  color: #5c226b;
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1.2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 0;
+}
+
+.sidebar li.active {
+  background-color: #5c226b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: inherit;
+}
+</style>
+
+<script>
+function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+    sidebar.style.display = 'block';
+  } else {
+    sidebar.style.display = 'none';
+  }
+}
+</script>

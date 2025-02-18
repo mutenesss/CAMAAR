@@ -16,7 +16,7 @@ class GerenciamentoController < ApplicationController
     @questionario = Questionario.new(questionario_params)
     
     if @questionario.save
-      flash[:alert] = "Questionário criado com sucesso!"
+      flash[:notice] = "Questionário criado com sucesso!"
       redirect_to gerenciamento_index_url
     else
       flash[:alert] = "Erro ao criar questionário #{@questionario.nome}"

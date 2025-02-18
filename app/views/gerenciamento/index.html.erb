@@ -1,13 +1,11 @@
 <div class="container">
-  <div class="sidebar">
-    <h3>Gerenciamento</h3>
-    <ul>
-      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
-      <li class="active"><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
-    </ul>
-  </div>
+  <%= render 'layouts/sidebar' %>
 
   <div class="main-content">
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>"><%= message %></div>
+    <% end %>
+
     <h1>Gerenciamento</h1>
     <div class="button-group">
       <%= button_to 'Importar Dados', '#', method: :get, class: 'btn primary' %>
@@ -21,47 +19,14 @@
 <style>
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 2px;
+  padding: 1px;
 }
 
 .container {
   display: flex;
   min-height: 100vh;
   flex-wrap: wrap;
-}
-
-.sidebar {
-  background-color: white;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-}
-
-.sidebar h3 {
-  color: #5c226b;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  padding: 10px 0;
-}
-
-.sidebar li.active {
-  background-color: #5c226b;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.sidebar li a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .main-content {
@@ -72,6 +37,27 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.flash {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.flash.notice {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .button-group {

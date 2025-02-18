@@ -1,11 +1,5 @@
 <div class="container">
-  <div class="sidebar">
-    <h3>Sidebar</h3>
-    <ul>
-      <li><a href="<%= url_for(controller: 'avaliacoes', action: 'index') %>">Avaliações</a></li>
-      <li><a href="<%= url_for(controller: 'gerenciamento', action: 'index') %>">Gerenciamento</a></li>
-    </ul>
-  </div>
+  <%= render 'layouts/sidebar' %>
 
   <div class="main-content">
     <h1>Criação de Formulário</h1>
@@ -20,35 +14,109 @@
       </div>
     <% end %>
 
-    <%= form_with model: @questionario, url: create_form_gerenciamento_index_path, method: :post do |f| %>
-      <div>
-        <%= f.label :nome, "Nome" %>
-        <%= f.text_field :nome, required: true, 
-            oninvalid: "this.setCustomValidity('Por favor, preencha o nome do formulário')",
-            oninput: "this.setCustomValidity('')" %>
-      </div>
-      <div>
-        <%= f.label :turma_id, "Turma" %>
-        <%= f.select :turma_id, 
-            options_from_collection_for_select(@turmas, :id, :codigo),
-            required: true,
-            prompt: "Selecione uma turma" %>
-      </div>
-      <div>
-        <%= f.label :template_id, "Template Base" %>
-        <%= f.select :template_id, 
-            options_from_collection_for_select(@templates, :id, :nome),
-            required: true,
-            prompt: "Selecione um template" %>
-      </div>
-      <div>
-        <%= f.submit "Criar Formulário" %>
-      </div>
-    <% end %>
+    <div class="form_div">
+      <%= form_with model: @questionario, url: create_form_gerenciamento_index_path, method: :post do |f| %>
+        <div class="name_field_bar">
+          <%= f.label :nome, "Nome" %>
+          <%= f.text_field :nome, required: true, 
+              oninvalid: "this.setCustomValidity('Por favor, preencha o nome do formulário')",
+              oninput: "this.setCustomValidity('')" %>
+        </div>
+        <div class="turma_selection_bar">
+          <%= f.label :turma_id, "Turma" %>
+          <%= f.select :turma_id, 
+              options_from_collection_for_select(@turmas, :id, :codigo),
+              required: true,
+              prompt: "Selecione uma turma" %>
+        </div>
+        <div class="template_selection_bar">
+          <%= f.label :template_id, "Template Base" %>
+          <%= f.select :template_id, 
+              options_from_collection_for_select(@templates, :id, :nome),
+              required: true,
+              prompt: "Selecione um template" %>
+        </div>
+        <div>
+          <%= f.submit "Criar Formulário", class: 'btn primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <style>
+html, body {
+  height: 100%;
+  margin: 2px;
+  padding: 1px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.main-content  {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flash {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.flash.notice {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.form_div {
+  background-color: white;
+  padding: 5%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 350px;
+  text-align: center;
+}
+
+.name_field_bar, .turma_selection_bar, .template_selection_bar {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.name_field_bar label, .turma_selection_bar label, .template_selection_bar label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.name_field_bar input, .turma_selection_bar select, .template_selection_bar select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 .error-messages {
   color: #dc3545;
   background-color: #f8d7da;
@@ -65,5 +133,43 @@
 
 select:invalid {
   color: gray;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn.primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #90EE90;
+  color: black;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: 3px ;
+    border-bottom: 2px solid #ccc;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
 }
 </style>
