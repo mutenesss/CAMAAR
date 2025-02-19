@@ -82,3 +82,7 @@ end
 group :test do
   gem 'factory_bot_rails'
 end
+
+group :test do
+  gem 'rails-controller-testing'
+end

@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+#Modulo referente a configuração da aplicação
 module Camaar
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

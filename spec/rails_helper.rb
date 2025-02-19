@@ -85,3 +85,8 @@ RSpec.configure do |config|
     User.destroy_all # Remove todos os usuários antes do teste
   end
 end
+
+RSpec.configure do |config|
+  config.include Rails::Controller::Testing::TemplateAssertions, type: :controller
+end
+
