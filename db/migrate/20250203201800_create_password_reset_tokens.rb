@@ -13,14 +13,14 @@ class CreatePasswordResetTokens < ActiveRecord::Migration[8.0]
 # - `expires_at` (datetime) - Data e hora em que o token expira.
 # - `timestamps` - Campos automáticos `created_at` e `updated_at` para rastrear a criação e atualização do registro.
 #
-def change
-  create_table :password_reset_tokens do |t|
-    t.integer :UserID
-    t.string :token
-    t.datetime :expires_at
+  def change
+    create_table :password_reset_tokens do |t|
+      t.integer :UserID
+      t.string :token
+      t.datetime :expires_at
 
-    t.timestamps
+      t.timestamps
+    end
   end
 end
-  end
-end
+

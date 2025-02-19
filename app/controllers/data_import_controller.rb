@@ -103,11 +103,11 @@ class DataImportController < ApplicationController
       user.Role = "docente"
     end
 
-    entry["dicente"].each do |dicente|
-      User.find_or_create_by(Matricula: dicente["matricula"]) do |user|
-        user.Nome = dicente["nome"]
-        user.Email = dicente["email"]
-        user.Role = "dicente"
+    entry["dicente"].each do |discente|
+      User.find_or_create_by(Matricula: discente["matricula"]) do |user|
+        user.Nome = discente["nome"]
+        user.Email = discente["email"]
+        user.Role = "discente"
       end
     end
   end

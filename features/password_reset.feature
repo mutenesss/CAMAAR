@@ -10,7 +10,7 @@ Feature: Password Reset
     And confirm the new password
     And click on "Save new password"
     Then the system should update the user's password
-    And display a confirmation message: "Password successfully reset."
+    And display a confirmation message: "Senha redefinida com sucesso."
 
   Scenario: Attempt to reset password with mismatched passwords
     Given the user has received a password reset email
@@ -18,4 +18,4 @@ Feature: Password Reset
     When they enter a new password
     And enter a different confirmation password
     And click on "Save new password"
-    Then the system should display an error message: "Passwords do not match."
+    Then the system should display an error message: "As senhas não coincidem."
