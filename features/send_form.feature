@@ -7,14 +7,14 @@ Feature: Send Questionnaire to a Course
     Background: Start from the "Gerenciamento" page
 
     Scenario: Sucess at sending a questionnaire
-        Given I have clicked on the "Enviar Formularios" button
+        Given I have clicked on the "Enviar Formulários" button
         And I see the "Formulario Disponiveis" page 
         When I select an item from "Formularios"
         And I press the "Enviar" button
         Then the itens selected from "Formularios" are made available to the course participants.
 
     Scenario: Failure at sending a questionnaire
-        Given I have clicked on the "Enviar Formularios" button
+        Given I have clicked on the "Enviar Formulários" button
         And I see the "Formulario Disponiveis" page 
         When I press the "Enviar" button
         Then I should see "Nenhum Formulario Selecionado"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_18_120437) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_19_143710) do
   create_table "avaliacaos", force: :cascade do |t|
     t.string "nome_materia"
     t.string "semestre"
@@ -28,6 +28,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_120437) do
 
   create_table "departamentos", primary_key: "DepartamentoID", force: :cascade do |t|
     t.string "nome"
+    t.string "sigla", null: false
   end
 
   create_table "formularios", force: :cascade do |t|

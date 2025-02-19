@@ -20,11 +20,11 @@ Template.create!([
   {nome: "Template 3", publico_alvo: "Docentes", semestre: "2024.2"}
 ])
 
-departamento = Departamento.create!(nome: "Teste 1")
+departamento = Departamento.create!(nome: "Departamento de Testes", sigla: "DTS")
 
 materia = Materia.create!(
   nome: "Materia de Teste 1",
-  codigo: "MT01",
+  codigo: "DTS01",
   departamento: departamento # Ensure the association is set
 )
 
@@ -34,6 +34,8 @@ Turma.create!([
   {codigo: "MT03", semestre: "2024.2", materia_id: materia.MateriaID}
 ])
 
+Departamento.create!(nome:"DEPTO CIÊNCIAS DA COMPUTAÇÃO", sigla:"CIC")
+User.create!(Nome: 'Aluno', Email: 'aluno@aluno.unb.br', Matricula: '123456789', Role: 'discente', Senha: '1')
 # Error on 'password_confirmation' -> Method does not exist for User
 # Is it 'confirmation_token'?
 # User.create(Email: 'aluno@aluno.unb.br', Senha: 'password123', password_confirmation: 'password123')

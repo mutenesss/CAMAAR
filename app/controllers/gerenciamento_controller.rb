@@ -39,7 +39,7 @@ class GerenciamentoController < ApplicationController
       flash[:notice] = "Questionário criado com sucesso!"
       redirect_to gerenciamento_index_url
     else
-      flash[:alert] = "Erro ao criar questionário #{@questionario.nome}"
+      flash.now[:alert] = "Erro ao criar questionário #{@questionario.nome}"
       @turmas = Turma.all
       @templates = Template.all
       render :new_form

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Criar Formulario', type: :feature do
   #let(:user) { FactoryBot.create(:user) }
+  let!(:departamento) { FactoryBot.create(:departamento) }
   let!(:turma) { FactoryBot.create(:turma) }
   let!(:template) { FactoryBot.create(:template) }
 
@@ -50,7 +51,7 @@ RSpec.feature 'Criar Formulario', type: :feature do
     visit new_form_gerenciamento_index_path
     
     click_link 'Avaliações'
-    expect(current_path).to eq(avaliacoes_path)
+    expect(current_path).to eq(root_path)
     
     visit new_form_gerenciamento_index_path
     click_link 'Gerenciamento'

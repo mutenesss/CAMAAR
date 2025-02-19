@@ -16,12 +16,17 @@ class DataImportController < ApplicationController
   #
   # Efeitos Colaterais:
   #   Realiza importação e criação de dados no banco.
+  #   Caso ocorra um erro, exibe uma mensagem de erro na página de gerenciamento.
   def create
     file = params[:file]
     if file.present?
-      data = JSON.parse(file.read)
-      import_data(data)
-      flash[:notice] = "Dados importados com sucesso!"
+      begin
+        data = JSON.parse(file.read)
+        import_data(data)
+        flash[:notice] = "Dados importados com sucesso!"
+      rescue JSON::ParserError
+        flash[:alert] = "Erro ao processar o arquivo: JSON inválido"
+      end
     else
       flash[:alert] = "Nenhum arquivo selecionado."
     end
@@ -61,8 +66,12 @@ class DataImportController < ApplicationController
   # Efeitos Colaterais:
   #   Cria ou atualiza a matéria no banco de dados.
   def import_materia(entry)
+    departamento_codigo = entry["code"][0, 3]
+    departamento = Departamento.find_or_create_by(sigla: departamento_codigo)
+
     Materia.find_or_create_by(codigo: entry["code"]) do |materia|
       materia.nome = entry["name"]
+      materia.departamento = departamento
     end
   end
 
@@ -77,9 +86,17 @@ class DataImportController < ApplicationController
   # Efeitos Colaterais:
   #   Cria ou atualiza registros de Turma, Departamento e User.
   def import_turma(entry)
-    Turma.find_or_create_by(codigo: entry["code"], semestre: entry["semester"])
-    Departamento.find_or_create_by(nome: entry.dig("docente", "departamento"))
-    
+    departamento_codigo = entry["code"][0, 3]
+    departamento = Departamento.find_or_create_by(sigla: departamento_codigo)
+
+    materia = Materia.find_or_create_by(codigo: entry["code"]) do |materia|
+      materia.departamento = departamento
+    end
+
+    Turma.find_or_create_by(codigo: entry["code"], semestre: entry["semester"]) do |turma|
+      turma.materia = materia
+    end
+
     User.find_or_create_by(Matricula: entry.dig("docente", "usuario")) do |user|
       user.Nome = entry.dig("docente", "nome")
       user.Email = entry.dig("docente", "email")

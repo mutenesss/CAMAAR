@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/rails_helper.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/rails_helper.rb": {
         "lines": [
           1,
           1,
@@ -87,7 +87,7 @@
           null,
           1,
           1,
-          34,
+          38,
           null,
           null,
           null,
@@ -97,7 +97,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/environment.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -106,7 +106,7 @@
           1
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/application.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/application.rb": {
         "lines": [
           1,
           null,
@@ -138,7 +138,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/boot.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -146,7 +146,7 @@
           1
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/environments/test.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -154,6 +154,10 @@
           null,
           null,
           1,
+          null,
+          1,
+          1,
+          null,
           null,
           null,
           null,
@@ -203,7 +207,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/initializers/assets.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -214,7 +218,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/initializers/content_security_policy.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -243,7 +247,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/initializers/filter_parameter_logging.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -255,7 +259,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/initializers/inflections.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -275,41 +279,20 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/initializers/session_store.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/initializers/session_store.rb": {
         "lines": []
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/factories/departamento.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/factories/departamento.rb": {
         "lines": [
           1,
           1,
-          5,
+          9,
+          9,
           null,
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/factories/materia.rb": {
-        "lines": [
-          1,
-          1,
-          5,
-          5,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/factories/template.rb": {
-        "lines": [
-          1,
-          1,
-          5,
-          5,
-          5,
-          null,
-          null
-        ]
-      },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/factories/turma.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/factories/materia.rb": {
         "lines": [
           1,
           1,
@@ -320,7 +303,29 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/factories/users.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/factories/template.rb": {
+        "lines": [
+          1,
+          1,
+          5,
+          5,
+          5,
+          null,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/factories/turma.rb": {
+        "lines": [
+          1,
+          1,
+          5,
+          5,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/factories/users.rb": {
         "lines": [
           null,
           null,
@@ -346,7 +351,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/helpers/application_helper.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -357,7 +362,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/helpers/formularios_helper.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/helpers/formularios_helper.rb": {
         "lines": [
           null,
           null,
@@ -368,7 +373,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/helpers/password_resets_helper.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/helpers/password_resets_helper.rb": {
         "lines": [
           null,
           null,
@@ -379,7 +384,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/helpers/passwords_set_helper.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/helpers/passwords_set_helper.rb": {
         "lines": [
           null,
           null,
@@ -390,7 +395,189 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/controllers/gerenciamento_controller_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/controllers/data_import_controller_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/data_import_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          2,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          3,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          3,
+          3,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          3,
+          3,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/controllers/gerenciamento_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -454,7 +641,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/controllers/password_resets_controller_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/controllers/password_resets_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -485,7 +672,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/password_resets_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/password_resets_controller.rb": {
         "lines": [
           null,
           null,
@@ -566,21 +753,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/controllers/register_controller_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/controllers/register_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -648,7 +821,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/features/create_form_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/features/create_form_spec.rb": {
         "lines": [
           1,
           null,
@@ -656,6 +829,7 @@
           null,
           5,
           5,
+          5,
           null,
           1,
           null,
@@ -704,14 +878,14 @@
           1,
           1,
           null,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/features/password_reset_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/features/password_reset_spec.rb": {
         "lines": [
           1,
           null,
@@ -803,7 +977,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/features/sigin_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/features/sigin_spec.rb": {
         "lines": [
           1,
           null,
@@ -852,7 +1026,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/helpers/formularios_helper_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/helpers/formularios_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -871,7 +1045,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/mailers/user_mailer_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/mailers/user_mailer_spec.rb": {
         "lines": [
           1,
           null,
@@ -916,7 +1090,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/mailers/user_mailer.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/mailers/user_mailer.rb": {
         "lines": [
           null,
           1,
@@ -968,7 +1142,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/mailers/application_mailer.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -986,7 +1160,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/models/formulario_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/models/formulario_spec.rb": {
         "lines": [
           1,
           null,
@@ -995,7 +1169,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/formulario.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/formulario.rb": {
         "lines": [
           null,
           null,
@@ -1005,7 +1179,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/application_record.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -1016,7 +1190,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/requests/formularios_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/requests/formularios_spec.rb": {
         "lines": [
           1,
           null,
@@ -1038,7 +1212,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/views/formularios/create.html.erb_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/views/formularios/create.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1047,7 +1221,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/views/formularios/new.html.erb_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/views/formularios/new.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1056,7 +1230,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/views/gerenciamento/index.html.erb_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/views/gerenciamento/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1080,7 +1254,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/spec/views/gerenciamento/new_form.html.erb_spec.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/spec/views/gerenciamento/new_form.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1129,7 +1303,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/user.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -1182,7 +1356,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/config/routes.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -1251,7 +1425,41 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/password_reset_token.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/departamento.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/materia.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/password_reset_token.rb": {
         "lines": [
           null,
           1,
@@ -1284,7 +1492,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/register_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/register_controller.rb": {
         "lines": [
           null,
           null,
@@ -1373,7 +1581,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/registration_token.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/registration_token.rb": {
         "lines": [
           null,
           1,
@@ -1393,7 +1601,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/avaliacoes_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/avaliacoes_controller.rb": {
         "lines": [
           null,
           1,
@@ -1414,7 +1622,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/avaliacao.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/avaliacao.rb": {
         "lines": [
           null,
           null,
@@ -1424,7 +1632,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/sigin_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/sigin_controller.rb": {
         "lines": [
           null,
           null,
@@ -1465,7 +1673,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/turma.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/turma.rb": {
         "lines": [
           null,
           null,
@@ -1481,41 +1689,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/materia.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/departamento.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/template.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/template.rb": {
         "lines": [
           null,
           null,
@@ -1531,7 +1705,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/gerenciamento_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/gerenciamento_controller.rb": {
         "lines": [
           null,
           null,
@@ -1555,9 +1729,9 @@
           null,
           null,
           1,
-          4,
-          4,
-          4,
+          5,
+          5,
+          5,
           null,
           null,
           null,
@@ -1597,7 +1771,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/models/questionario.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/models/questionario.rb": {
         "lines": [
           null,
           null,
@@ -1629,7 +1803,7 @@
           null
         ]
       },
-      "/home/grasper/Documents/Joao/Eng. Sof/CAMAAR/app/controllers/formularios_controller.rb": {
+      "/home/erick/Workspace/Current/ES/Projeto/CAMAAR/app/controllers/formularios_controller.rb": {
         "lines": [
           null,
           null,
@@ -1679,7 +1853,7 @@
         ]
       }
     },
-    "timestamp": 1739929433
+    "timestamp": 1739976836
   },
   "Unit Tests": {
     "coverage": {
